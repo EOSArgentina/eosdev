@@ -12,11 +12,10 @@ services:
     volumes:
       - ./node/data:/mnt/dev/data
       - ./node/config.ini:/mnt/dev/data/config.ini
-      - ./work:/work
 
 
   wallet:
-    image: eosar/eos:latest
+    image: eosio/eos-dev:latest
     command: /opt/eosio/bin/keosd --data-dir /opt/eosio/bin/data-dir
     hostname: wallet
     container_name: eosdev_wallet
@@ -24,4 +23,6 @@ services:
       - node
     volumes:
       - ./wallet:/opt/eosio/bin/data-dir
+      - ./work:/work
+
       #- ./config.ini:/opt/eosio/bin/data-dir/config.ini

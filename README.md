@@ -34,6 +34,32 @@ Bios, token, exchange and multisig so far.
     bootstrap_chain.sh
 
 
+## Development
+
+How to use this toolkit for development
+
 ### Create template contract
 
+Contract skeleton will be created inside work folder.
+
     eosiocpp.sh -n testcontract
+
+### Compile contract
+
+The work dir is set on the root dir / in the container.
+
+    eosiocpp.sh -o /work/testcontract/testcontract.wast /work/testcontract/testcontract.cpp
+
+    eosiocpp.sh -g /work/testcontract/testcontract.abi /work/testcontract/testcontract.cpp
+
+### Create account
+
+    cleos.sh create account eosio testcontract ...
+
+### Set code
+
+    cleos.sh set contract testcontract /work/testcontract -p testcontract@active
+
+### Call the action
+
+    cleos.sh push action testcontract hi '["eosio"]' -p eosio@active
