@@ -1,0 +1,27 @@
+version: "3"
+
+services:
+  node:
+    image: eosio/eos-dev:latest
+    command: nodeos --data-dir /mnt/dev/data --config-dir /mnt/dev/data --contracts-console
+    hostname: node
+    container_name: eosdev_node
+    ports:
+      - "8888:8888"
+      - "9876:9876"
+    volumes:
+      - ./node/data:/mnt/dev/data
+      - ./node/config.ini:/mnt/dev/data/config.ini
+      - ./work:/work
+
+
+  wallet:
+    image: eosar/eos:latest
+    command: /opt/eosio/bin/keosd --data-dir /opt/eosio/bin/data-dir
+    hostname: wallet
+    container_name: eosdev_wallet
+    links:
+      - node
+    volumes:
+      - ./wallet:/opt/eosio/bin/data-dir
+      #- ./config.ini:/opt/eosio/bin/data-dir/config.ini

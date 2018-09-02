@@ -7,6 +7,5 @@ Dockerized environment to bootstrap your smart contract development.
     git clone https://github.com/EOSArgentina/eosdev.git
     cd eosdev
     . ./.env
-    start.sh
+    docker-compose up -d
     eosiocpp.sh -n testcontract
-

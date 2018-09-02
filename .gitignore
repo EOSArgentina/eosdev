@@ -1,0 +1,10 @@
+/wallet/*
+/node/*
+/work/*
+/wallet.txt
+
+!/wallet/.keep
+!/node/config.ini
+!/node/data/.keep
+!/work/.keep
+
