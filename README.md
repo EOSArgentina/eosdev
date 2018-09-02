@@ -29,6 +29,8 @@ Create default wallet and import eosio key
 
 ### Setup system constracts
 
+Bios, token, exchange and multisig so far.
+
     bootstrap_chain.sh
 
 
