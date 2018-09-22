@@ -2,7 +2,7 @@ version: "3"
 
 services:
   node:
-    image: eosio/eos-dev:latest
+    image: eosio/eos-dev:v1.2.5
     command: nodeos --data-dir /mnt/dev/data --config-dir /mnt/dev/data --contracts-console
     hostname: node
     container_name: eosdev_node
@@ -15,7 +15,7 @@ services:
 
 
   wallet:
-    image: eosio/eos-dev:latest
+    image: eosio/eos-dev:v1.2.5
     command: /opt/eosio/bin/keosd --data-dir /opt/eosio/bin/data-dir
     hostname: wallet
     container_name: eosdev_wallet
